@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Brain Tumor Detection</h1>
+        <input type="file" id="imageInput">
+        <button onclick="uploadImage()">Predict</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById("imageInput");
+            const resultText = document.getElementById("result");
+
+            if (!fileInput.files.length) {
+                alert("Please select an image.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch("/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+                resultText.innerHTML = `Prediction: ${data.prediction} (Confidence: ${data.confidence}%)`;
+            } catch (error) {
+                console.error("Error:", error);
+                resultText.innerHTML = "Error occurred. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>

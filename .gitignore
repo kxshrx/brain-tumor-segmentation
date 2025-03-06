@@ -1,0 +1,21 @@
+# Flask Ignore
+__pycache__/
+instance/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Express.js Ignore
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# General Ignore
+.DS_Store
+.vscode/
+.idea/
+*.log
+*.sqlite3
