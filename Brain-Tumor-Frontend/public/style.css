@@ -1,26 +1,178 @@
+/* ✅ Professional Fonts */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif; /* Primary readable font */
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #f6f5f8; /* Soft Light Gray */
+    color: #2C3E50;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.container {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* ✅ Navbar */
+.navbar {
+    background-color: #12214c; /* Deep Blue */
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ✅ Main Content */
+.main-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px; /* Adjust for navbar height */
+    padding-bottom: 50px; /* Adjust for footer height */
+}
+
+/* ✅ Content Box */
+.content {
+    background-color: #e6edf4; /* Light Blue-Gray */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
     width: 50%;
-    margin: auto;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
+/* ✅ Headings */
+h1 {
+    color: #2C3E50; /* Dark Blue-Gray */
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #004B8D; /* Deep Blue */
+    font-family: 'Lora', serif;
+    margin-bottom: 20px;
+}
+
+/* ✅ Drag & Drop Upload */
+.drop-zone {
+    border: 2px dashed #004B8D; /* Deep Blue */
+    padding: 20px;
+    background-color: #f6f5f8; /* Soft White */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.drop-zone:hover {
+    background-color: #DDE2E8; /* Light Blue */
+}
+
+/* ✅ Upload Label */
+.upload-label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #004B8D; /* Deep Blue */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.upload-label:hover {
+    background-color: #0066CC; /* Brighter Blue */
+}
+
+/* ✅ Hidden Input */
+.hidden-input {
+    display: none;
+}
+
+/* ✅ Image Preview */
+.image-preview {
+    margin-top: 15px;
+}
+
+.image-preview img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Buttons */
+.upload-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background-color: #004B8D; /* Deep Blue */
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.upload-btn:hover {
+    background-color: #0066CC; /* Brighter Blue */
+}
+
+/* ✅ Loading Indicator */
+.loading-text {
+    display: none;
+    font-size: 16px;
+    color: #2C3E50; /* Dark Gray-Blue */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ✅ Results Display */
+#result {
+    font-size: 18px;
+    color: #2C3E50;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ✅ Download Button */
+.download-btn {
+    padding: 10px 15px;
+    background-color: #004B8D; /* Deep Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: 0.3s;
+    display: none;
+}
+
+.download-btn:hover {
+    background-color: #0066CC;
+}
+
+/* ✅ Footer */
+.footer {
+    background-color: #12214c; /* Deep Blue */
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }

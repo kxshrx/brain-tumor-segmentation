@@ -3,43 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Tumor Detector</title>
+    <title>Brain Tumor Detection</title>
+
+    <!-- ✅ Professional Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Brain Tumor Detection</h1>
-        <input type="file" id="imageInput">
-        <button onclick="uploadImage()">Predict</button>
-        <p id="result"></p>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2>Brain Tumor AI Detection</h2>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="content">
+            <h1>Upload an MRI Scan</h1>
+            <p class="description">AI-powered tumor detection for medical professionals.</p>
+
+            <!-- Drag & Drop Upload -->
+            <div id="drop-area" class="drop-zone">
+                <p>Drag & Drop MRI Image Here</p>
+                <input type="file" id="imageInput" class="hidden-input" accept="image/*">
+                <label for="imageInput" class="upload-label">Or Browse Files</label>
+            </div>
+
+            <!-- Image Preview -->
+            <div class="image-preview">
+                <img id="previewImage" src="" alt="MRI Preview" style="display: none;">
+            </div>
+
+            <!-- Action Buttons -->
+            <button onclick="uploadImage()" class="upload-btn">Analyze MRI</button>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading-text">Processing...</div>
+
+            <!-- Results Display -->
+            <div id="result-container">
+                <p id="result"></p>
+                <button id="download-btn" class="download-btn" style="display: none;" onclick="downloadPDF()">Download Report</button>
+            </div>
+        </div>
     </div>
 
-    <script>
-        async function uploadImage() {
-            const fileInput = document.getElementById("imageInput");
-            const resultText = document.getElementById("result");
+    <!-- Footer -->
+    <footer class="footer">
+        <p>⚕️ AI-Based Brain Tumor Detection | Medical Technology</p>
+        <p>For informational purposes only. Consult a medical professional for an official diagnosis.</p>
+    </footer>
 
-            if (!fileInput.files.length) {
-                alert("Please select an image.");
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append("file", fileInput.files[0]);
-
-            try {
-                const response = await fetch("/upload", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const data = await response.json();
-                resultText.innerHTML = `Prediction: ${data.prediction} (Confidence: ${data.confidence}%)`;
-            } catch (error) {
-                console.error("Error:", error);
-                resultText.innerHTML = "Error occurred. Please try again.";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
